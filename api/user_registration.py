@@ -11,9 +11,10 @@ def user_reg():
     print(conn)
     if conn:
         jsonObj = request.get_json()
-        return 'pass'
+        mycursor = conn.cursor()
+        mycursor.execute('SELECT * FROM KA_UserRegistration')
+        myresult = mycursor.fetchall()
+        return str(myresult)
 
     else:
         return json.dumps({"Status":"Error","Message":"Error in connection"}) 
-
-
