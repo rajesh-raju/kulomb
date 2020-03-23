@@ -10,6 +10,7 @@ app=Flask(__name__)
 CORS(app)
 #******************************************************************
 app.register_blueprint(user_registration_bp,url_prefix = "")
+app.register_blueprint(login_bp,url_prefix = "")
 
 
 
