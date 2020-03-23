@@ -12,8 +12,6 @@ def user_reg():
     if conn:
         json_obj = request.get_json()
         mycursor = conn.cursor()
-        #mycursor.execute('SELECT * FROM KA_UserRegistration')
-        #myresult = mycursor.fetchall()
         try:
             fst_name =  json_obj["First_Name"]
             lst_name = json_obj["Last_Name"]
