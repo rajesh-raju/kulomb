@@ -40,7 +40,7 @@ def user_reg():
             except Exception as err:
                 conn.close()
                 mycursor.close()
-                return json.dumps({"Status": "Error", "Message": "Error In Query " + err})
+                return json.dumps({"Status": "Error", "Message": "Error In Query " + str(err)})
         except:
             conn.close()
             mycursor.close()
