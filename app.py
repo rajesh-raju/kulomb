@@ -11,6 +11,8 @@ CORS(app)
 #******************************************************************
 app.register_blueprint(user_registration_bp,url_prefix = "")
 app.register_blueprint(login_bp,url_prefix = "")
+app.register_blueprint(vehicles_info_bp,url_prefix = "")
+
 
 
 
