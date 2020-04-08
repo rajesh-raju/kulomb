@@ -1,5 +1,6 @@
 from flask import Blueprint,request,jsonify
 import requests
+import json
 
 
 url = 'https://flow-api.fluctuo.com/v1?access_token=eFwW53d4EiCdlmbrs8muiM5gSvOrhPwh'
@@ -16,7 +17,7 @@ def vehicles_info():
     st = "query ($lat: Float!, $lng: Float!) {vehicles (lat: $lat, lng: $lng) {id,type,attributes,lat,lng,provider {name}}}"
     data = {"query":st,"variables":{"lat":lat,"lng":lng}}
     headerInfo = {'content-type': 'application/json' }
-    resp = requests.post(url, data=jsonify(data) , headers=headerInfo)
+    resp = requests.post(url, data=json.dumps(data) , headers=headerInfo)
     if resp.status_code == 200:
         return jsonify({"Status":"Success","Message":"Ok","data":resp.json()['data']})
     else:
