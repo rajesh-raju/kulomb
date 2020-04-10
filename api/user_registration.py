@@ -37,7 +37,11 @@ def user_reg():
                 values = (passwrd, fst_name, lst_name, mobile_no, email, pref_lang, alter_mobile_no, str(datetime.datetime.now()))
                 mycursor.execute(query, values)
                 conn.commit()
-                return jsonify({"Status":"Success","Message":"User Created"})
+                query = f"SELECT UserId FROM KA_UserRegistration WHERE Mobile_Number = '{mobile_no}' \
+                and Email = '{email}'"
+                res = mycursor.execute(query)
+                res = mycursor.fetchall()
+                return jsonify({"Status":"Success","Message":"User Created","User Id":res[0][0]})
             except Exception as err:
                 conn.close()
                 mycursor.close()
