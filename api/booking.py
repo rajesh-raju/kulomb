@@ -32,7 +32,7 @@ def booking():
                 res = mycursor.fetchall()
                 print(res)
                 print(time_stamp)
-                return jsonify({"Status":"Success","Message":"User Created","User Id":user_id,"Bookin Id":res[0][0]})
+                return jsonify({"Status":"Success","Message":"User Created","User Id":user_id,"Booking Id":res[0][0]})
             except Exception as err:
                 conn.close()
                 mycursor.close()
